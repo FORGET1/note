@@ -1,0 +1,264 @@
+/*初见less*/
+.content ul{
+			list-style: none;
+			li {
+				height: 24px;
+				line-height: 25px;
+				padding-left: 15px;
+				background: url("arr.jpg") no-repeat center left;
+				a {
+					color: #535353;
+					text-decoration: none;
+					font-family: microsoft yahei;
+				}
+			}
+		}
+
+/*延迟加载*/
+.lazy-eval {
+	width: @val;
+}
+@val:@a;
+@a:9%;
+
+/*定义多个相同变量*/
+@val:0;
+.class{
+	@val:1;
+	.brass{
+		@val:2;
+		three:@val;
+		@val:3;
+	}
+	one:@val;
+}
+
+/*变量*/
+@blue:#5B83AD;
+#header {
+	color: @blue;
+}
+
+/*作为选择器和属性名*/
+@mySelector:width;
+.@{mySelector} {
+	@{mySelector}: 960px;
+	height: 500px;
+}
+
+/*作为URL*/
+@myUrl:"http://www.maiziedu.com/static/images";
+body {
+	background: #4CDCA9 url("@{myUrl}/logo.png") no-repeat
+}
+
+/*普通混合*/
+.bordered {
+			border-top: dotted 1px black;
+			border-bottom: solid 2px black;
+		}
+		#meau a{
+			color: #111;
+			.bordered;
+		}
+		.post a{
+			color: red;
+			.bordered;
+		}
+
+/*不带输出的混合*/
+.my-mixin {
+	color: black;
+}
+.my-other-mixin() {
+	background: white;
+}
+.class {
+	.my-mixin;
+	.my-other-mixin;
+}
+
+/*带选择器的混合*/
+.my-hover-mixin() {
+	&:hover {
+		border: 1px solid red;
+	}
+}
+button {
+	.my-hover-mixin;
+}
+
+/*带参数的混合*/
+.border(@border_color) {
+	border: solid 2px @border_color;
+}
+.div {
+	.border(#f60);
+}
+
+/*带参数并且有默认值*/
+.border(@border_color:#f60) {
+	border: 2px solid @border_color;
+}
+.div1 {
+	.border();
+}
+.div {
+	.border(red);
+}
+/*带多个参数的混合*/
+.mixins(@color;@padding:xxx;@margin:2){
+	color-3:@color;
+	padding-3:@padding;
+	margin:@margin @margin @margin @margin;
+}
+.div{
+	.mixins(1,2,3;something,ele);
+}
+.div{
+	.mixins(1,2,3);
+}
+.div2{
+	.mixins(1,2,3;)
+}
+/*定义多个具有相同名称和参数数量的混合*/
+.mixin(@color){
+	color-1:@color;
+}
+.mixin(@color,@padding:2){
+	color-2:@color;
+	padding-2:@padding;
+}
+.mixin(@color,@padding,@margin:2){
+	color-3:@color;
+	padding:@padding;
+	margin: @margin @margin @margin @margin;
+}
+.some .selector div{
+	.mixin(#008000);
+}
+/*命名参数*/
+.mixina (@color:black;@margin:10px;@padding:20px){
+	color: @color;
+	margin:@margin;
+	padding:@padding;
+}
+ .class1{
+	.mixina(@margin:20px;@color:#33ACFE);
+} 
+.class2 {
+	.mixina(#EFCA44;@padding:40px)
+}
+/*@anguments变量*/
+.border1(@x:solid;@c:red){
+	border:21px @arguments;
+}
+.div1 {
+	.border1();
+}
+
+.border2(@w:1px;@x:solid;@c:red;){
+	border:@arguments;
+}
+.div1{
+	.border2();
+}
+//匹配模式
+.border3(all,@w:5px){
+	border-radius: @w;
+}
+.border3(t_l,@w:5px){
+	border-top-left-radius: @w;
+}
+.border3(t_r,@w:5px){
+	border-top-right-radius: @w;
+}
+.border3(b_l,@w:5px){
+	border-bottom-left-radius: @w;
+}
+.border3(b_r,@w:5px){
+	border-bottom-right-radius: @w;
+}
+/*都是圆角*/
+.border {
+	.border3(all,50%);
+}
+/*右上角圆角*/
+.border {
+	.border3(t_r,50%);
+}
+/*得到混合中变量的返回值*/
+.average(@x,@y) {
+	@average:((@x + @y) / 2);
+}
+div {
+	.average(16px, 50px);
+	padding: @average;
+}
+
+/* 嵌套 */
+#header {
+	color: black;
+	.navigation {
+		font-size: 12px;
+	}
+	.logo {
+		width: 300px;
+	}
+}
+/*父元素选择器*/
+/* 传统写法 */
+.bgcolor {
+	background: #ffffff;
+}
+.bgcolor a {
+	color: #888888;
+}
+.bgcolor a:hover {
+	color: #ff6600;
+}
+/*less写法*/
+.bgcolor {
+	background: #ffffff;
+	a {
+		color: #888888;
+		&:hover {
+			color: #ff6600;
+		}
+	}
+
+}
+/*改变选择器顺序*/
+ul {
+	li {
+		.content & {
+			background: red;
+		}
+	}
+}
+
+/*组合使用生成所有可能的选择器列表*/
+p, a, ul, li {
+	border-top: 2px dotted #366;
+	& & {
+		border-top: 0;
+	}
+}
+
+//运算
+/*数值型运算*/
+.wp {
+	width: 450px + 450;
+}
+/*优先级运算,先进行-运算，再进行*运算*/
+/*错误写法*/.w {
+	width: 500px - 50 * 2;
+}
+/*正确写法*/.p {
+	width: (500px - 50) * 2;
+}
+
+/*颜色值运算*/
+.content {
+	background: #000000 + 21;
+}

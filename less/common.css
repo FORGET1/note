@@ -1,0 +1,210 @@
+/*初见less*/
+.content ul {
+  list-style: none;
+}
+.content ul li {
+  height: 24px;
+  line-height: 25px;
+  padding-left: 15px;
+  background: url("arr.jpg") no-repeat center left;
+}
+.content ul li a {
+  color: #535353;
+  text-decoration: none;
+  font-family: microsoft yahei;
+}
+/*延迟加载*/
+.lazy-eval {
+  width: 0;
+}
+/*定义多个相同变量*/
+.class {
+  one: 1;
+}
+.class .brass {
+  three: 3;
+}
+/*变量*/
+#header {
+  color: #5b83ad;
+}
+/*作为选择器和属性名*/
+.width {
+  width: 960px;
+  height: 500px;
+}
+/*作为URL*/
+body {
+  background: #4cdca9 url("http://www.maiziedu.com/static/images/logo.png") no-repeat;
+}
+/*普通混合*/
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+#meau a {
+  color: #111;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.post a {
+  color: red;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+/*不带输出的混合*/
+.my-mixin {
+  color: black;
+}
+.class {
+  color: black;
+  background: white;
+}
+/*带选择器的混合*/
+button:hover {
+  border: 1px solid red;
+}
+/*带参数的混合*/
+.div {
+  border: solid 2px #ff6600;
+  border: 2px solid #ff6600;
+}
+/*带参数并且有默认值*/
+.div1 {
+  border: 2px solid #ff6600;
+  border-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.div {
+  border: solid 2px #ff0000;
+  border: 2px solid #ff0000;
+}
+/*带多个参数的混合*/
+.div {
+  color-3: 1, 2, 3;
+  padding-3: something, ele;
+  margin: 2 2 2 2;
+}
+.div {
+  color-3: 1;
+  padding-3: 2;
+  margin: 3 3 3 3;
+}
+.div2 {
+  color-3: 1, 2, 3;
+  padding-3: xxx;
+  margin: 2 2 2 2;
+}
+/*定义多个具有相同名称和参数数量的混合*/
+.some .selector div {
+  color-1: #008000;
+  color-2: #008000;
+  padding-2: 2;
+}
+/*命名参数*/
+.class1 {
+  color: #33acfe;
+  margin: 20px;
+  padding: 20px;
+}
+.class2 {
+  color: #efca44;
+  margin: 10px;
+  padding: 40px;
+}
+/*@anguments变量*/
+.div1 {
+  border: 21px solid #ff0000;
+}
+.div1 {
+  border: 1px solid #ff0000;
+}
+/*都是圆角*/
+.border {
+  border-radius: 50%;
+}
+/*右上角圆角*/
+.border {
+  border-top-right-radius: 50%;
+}
+/*得到混合中变量的返回值*/
+div {
+  padding: 33px;
+}
+/* 嵌套 */
+#header {
+  color: black;
+}
+#header .navigation {
+  font-size: 12px;
+}
+#header .logo {
+  width: 300px;
+}
+/*父元素选择器*/
+/* 传统写法 */
+.bgcolor {
+  background: #ffffff;
+}
+.bgcolor a {
+  color: #888888;
+}
+.bgcolor a:hover {
+  color: #ff6600;
+}
+/*less写法*/
+.bgcolor {
+  background: #ffffff;
+}
+.bgcolor a {
+  color: #888888;
+}
+.bgcolor a:hover {
+  color: #ff6600;
+}
+/*改变选择器顺序*/
+.content ul li {
+  background: red;
+}
+/*组合使用生成所有可能的选择器列表*/
+p,
+a,
+ul,
+li {
+  border-top: 2px dotted #366;
+}
+p p,
+p a,
+p ul,
+p li,
+a p,
+a a,
+a ul,
+a li,
+ul p,
+ul a,
+ul ul,
+ul li,
+li p,
+li a,
+li ul,
+li li {
+  border-top: 0;
+}
+/*数值型运算*/
+.wp {
+  width: 900px;
+}
+/*优先级运算,先进行-运算，再进行*运算*/
+/*错误写法*/
+.w {
+  width: 400px;
+}
+/*正确写法*/
+.p {
+  width: 900px;
+}
+/*颜色值运算*/
+.content {
+  background: #151515;
+}
