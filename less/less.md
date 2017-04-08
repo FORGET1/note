@@ -708,4 +708,119 @@
 			background: #151515;
 		}
 		```
-	- **注意:**既然是转换为rgb模式，我们知道rgb的取值范围是0~255，所以我们计算时不能超过这个区间，超过后默认使用最大值255计算。
+	* **注意:**既然是转换为rgb模式，我们知道rgb的取值范围是0~255，所以我们计算时不能超过这个区间，超过后默认使用最大值255计算。
+
+##7.函数
+1. 函数介绍
+	* Less提供了许多用于转换颜色，处理字符串和进行算术运算的函数，这些函数使用起来非常简单。
+2. 实例-A(最常见的rgb()函数)
+	* 最常见的的rgb()函数，将rgb模式的值转换为16进制的值
+	* 编写less
+		```
+		.bgcolor {
+			background: rgb(0,133,0);
+		}
+		```
+	* 编译结果
+		```
+		.bgcolor {
+			background: #008500;
+		}
+		```
+3. 实例-B(提取蓝色值blue()函数)
+	* 编写less
+		```
+		.bgcolor {
+			background: blue(#FFFFFF);
+		}
+		```
+	* 编译结果
+		```
+		.bgcolor {
+			background: 255;
+		}
+		```
+
+##8.命名空间
+1. 什么是命名空间
+	* 将一些需要的混合组合在一起，可以通过嵌套多层id或者class来实现。
+2. 实例
+	* less编写
+		```
+		#bgcolor() {
+			background: #FFFFFF;
+			.a {
+				color: #666666;
+				&:hover {
+					color: #FF6600;
+				}
+				.b {
+					background: #FF0000;
+				}
+			}
+		}
+		.bgcolor1 {
+			background: #FDFEE0;
+			#bgcolor>.a;
+		}
+		.bgcolor2 {
+			#bgcolor>.a>.b;
+		}
+		```
+	* 编译结果
+		```
+		.bgcolor1 {
+		    background: #FDFEE0;
+		    color: #666666;
+		}
+		.bgcolor1:hover {
+		    color: #FF6600;
+		}
+		.bgcolor1 .b {
+		    background: #FF0000;
+		}
+		.bgcolor2 {
+		    background: #FF0000;
+		}
+		```
+3. 省略>符号
+	* less写法
+		```
+		#bgcolor() {
+			background: #FFFFFF;
+			.a {
+				color: #666666;
+				&:hover {
+					color: #FF6600;
+				}
+				.b {
+					background: #FF0000;
+				}
+			}
+		}
+		.bgcolor1 {
+			background: #FDFEE0;
+			#bgcolor .a;
+		}
+		.bgcolor2 {
+			#bgcolor .a .b;
+		}
+		```
+	* 编译结果
+		```
+		.bgcolor1 {
+		    background: #FDFEE0;
+		    color: #666666;
+		}
+		.bgcolor1:hover {
+		    color: #FF6600;
+		}
+		.bgcolor1 .b {
+		    background: #FF0000;
+		}
+		.bgcolor2 {
+		    background: #FF0000;
+		}
+		```
+
+##9.作用域

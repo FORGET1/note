@@ -262,3 +262,54 @@ p, a, ul, li {
 .content {
 	background: #000000 + 21;
 }
+//函数
+/*rgb()函数*/
+.bgcolor {
+	background: rgb(0,133,0);
+}
+/*提取蓝色值函数*/
+.bg {
+	background: blue(#FFFFFF);
+}
+
+//命名空间
+/*命名空间*/
+// #bgcolor() {
+// 	background: #FFFFFF;
+// 	.a {
+// 		color: #666666;
+// 		&:hover {
+// 			color: #FF6600;
+// 		}
+// 		.b {
+// 			background: #FF0000;
+// 		}
+// 	}
+// }
+// .bgcolor1 {
+// 	background: #FDFEE0;
+// 	#bgcolor>.a;
+// }
+// .bgcolor2 {
+// 	#bgcolor>.a>.b;
+// }
+// 省略>符号
+#bgcolor() {
+	background: #FFFFFF;
+	.a {
+		color: #666666;
+		&:hover {
+			color: #FF6600;
+		}
+		.b {
+			background: #FF0000;
+		}
+	}
+}
+.bgcolor1 {
+	background: #FDFEE0;
+	#bgcolor .a;
+}
+.bgcolor2 {
+	#bgcolor .a .b;
+}

@@ -208,3 +208,25 @@ li li {
 .content {
   background: #151515;
 }
+/*rgb()函数*/
+.bgcolor {
+  background: #008500;
+}
+/*提取蓝色值函数*/
+.bg {
+  background: 255;
+}
+/*命名空间*/
+.bgcolor1 {
+  background: #FDFEE0;
+  color: #666666;
+}
+.bgcolor1:hover {
+  color: #FF6600;
+}
+.bgcolor1 .b {
+  background: #FF0000;
+}
+.bgcolor2 {
+  background: #FF0000;
+}
