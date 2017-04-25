@@ -313,3 +313,17 @@ p, a, ul, li {
 .bgcolor2 {
 	#bgcolor .a .b;
 }
+/*作用域*/
+@color:#FFFFFF;
+.bgcolor {
+	width: 50px;
+	a {
+		color: @color;
+	}
+	@color: #FF0000;
+}
+/*引入import*/
+@import "main";
+.content {
+	width: @wq;
+}

@@ -230,3 +230,14 @@ li li {
 .bgcolor2 {
   background: #FF0000;
 }
+/*作用域*/
+.bgcolor {
+  width: 50px;
+}
+.bgcolor a {
+  color: #ff0000;
+}
+/*引入import*/
+.content {
+  width: 960px;
+}

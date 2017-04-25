@@ -824,3 +824,52 @@
 		```
 
 ## 9.作用域
+1. 什么是作用域
+	* Less中的作用域与编程语言中的作用域概念非常相似，首先会在局部查找变量和混合，如果没找到，编译器就会在父作用域中查找，依次类推。
+2. 案例
+	* less编写
+	```
+	@color:#ffffff;
+	.bgcolor {
+		width: 50px;
+		a {
+			color: @color;
+		}
+		@color: #ff0000;
+	}
+	```
+	* 编译结果
+	```
+	.bgcolor {
+		width: 50px;
+	}
+	.bgcolor a {
+		color: #ff0000;
+	}
+	```
+
+## 10.引入
+1. 什么是引入
+	* 你可以引入一个或多个.less文件，然后这个文件中的所有变量都可以在当前的less项目中使用！
+2. 实例
+	* （分析）比如之前我们有一个main.less的文件，现在我们想引入这个文件，然后使用它其中的变量。
+	 
+	* *main.less文件*
+
+	`@wp: 960px;`
+
+	* *style.less*当前项目文件
+
+	```
+	@import "main"; //引入main.less文件
+	.content {
+		width: @wp; //使用main.less中定义的变量@wp
+	}
+	```
+
+	* 编译结果
+	```
+	.content{
+		width: 960px;
+	}
+	```
