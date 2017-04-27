@@ -1,4 +1,5 @@
 /*初见less*/
+@import "index.css";
 .content ul {
   list-style: none;
 }
@@ -26,7 +27,7 @@
 }
 /*变量*/
 #header {
-  color: #5b83ad;
+  color: #5B83AD;
 }
 /*作为选择器和属性名*/
 .width {
@@ -35,7 +36,7 @@
 }
 /*作为URL*/
 body {
-  background: #4cdca9 url("http://www.maiziedu.com/static/images/logo.png") no-repeat;
+  background: #4CDCA9 url("http://www.maiziedu.com/static/images/logo.png") no-repeat;
 }
 /*普通混合*/
 .bordered {
@@ -66,18 +67,18 @@ button:hover {
 }
 /*带参数的混合*/
 .div {
-  border: solid 2px #ff6600;
-  border: 2px solid #ff6600;
+  border: solid 2px #f60;
+  border: 2px solid #f60;
 }
 /*带参数并且有默认值*/
 .div1 {
-  border: 2px solid #ff6600;
+  border: 2px solid #f60;
   border-radius: 50%;
   border-top-right-radius: 50%;
 }
 .div {
-  border: solid 2px #ff0000;
-  border: 2px solid #ff0000;
+  border: solid 2px red;
+  border: 2px solid red;
 }
 /*带多个参数的混合*/
 .div {
@@ -103,21 +104,21 @@ button:hover {
 }
 /*命名参数*/
 .class1 {
-  color: #33acfe;
+  color: #33ACFE;
   margin: 20px;
   padding: 20px;
 }
 .class2 {
-  color: #efca44;
+  color: #EFCA44;
   margin: 10px;
   padding: 40px;
 }
 /*@anguments变量*/
 .div1 {
-  border: 21px solid #ff0000;
+  border: 21px solid red;
 }
 .div1 {
-  border: 1px solid #ff0000;
+  border: 1px solid red;
 }
 /*都是圆角*/
 .border {
@@ -235,9 +236,10 @@ li li {
   width: 50px;
 }
 .bgcolor a {
-  color: #ff0000;
+  color: #FF0000;
 }
 /*引入import*/
 .content {
   width: 960px;
+  height: 960px;
 }

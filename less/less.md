@@ -873,3 +873,54 @@
 		width: 960px;
 	}
 	```
+3. 你也可以在项目中引用css文件，但你不能混合到项目中
+	* 注意：引用.css文件会被原样输出到编译的文件中！
+	* *index.css*包含的内容
+	
+		```
+		.color {
+			color: #ff6600;
+		}
+		```
+
+	* 实例
+		* 错误的方式
+		```
+		@import "main";
+		@import "index.css";
+		.content {
+			width: @wq;
+			height: @wq;
+			.color; //不能混合css文件中的样式
+		}
+		```
+		* 正确的方式
+		```
+		@import "main";
+		@import "index.css";
+		.content {
+			width: @wq;
+			height: @wq;
+		}
+		```
+	* 编译结果
+	```
+	@import "index.css";
+	.content {
+		width: 960px;
+		height: 960px;
+	}
+	```
+4. 可带参数
+	* once
+		* 默认，只包含一次
+	* reference
+		* 使用less文件但不输出
+	* inline
+		* 在输出中包含源文件但不加工它
+	* less
+		* 将文件作为Less文件对象，无论是什么文件扩展名
+	* css
+		* 将文件作为CSS文件对象，无论是什么文件扩展名
+	* multiple
+		* multiple，允许引入多次相同文件名的文件
