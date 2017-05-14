@@ -927,4 +927,37 @@
 
 ## 11.关键字
 1. 什么是!important关键字
-	* 
+	* 在调用的混合集后面追加!important关键字，可以使混合集里面的所有属性都继承!important
+2. less语句
+	```
+	.foo(@bg:#f5f5f5,@color:#900) {
+		background: @bg;
+		color:@color;
+	}
+	.unimportant {
+		.foo();
+	}
+	.important {
+		.foo() !important;
+	}
+	```
+3. 编译结果
+	```
+	.unimportant {
+	  background: #f5f5f5;
+	  color: #900;
+	}
+	.important {
+	  background: #f5f5f5 !important;
+	  color: #900 !important;
+	}
+	```
+
+## 12.条件表达式
+1. 带条件的混合
+	* 比较运算符
+		* \>, >=, =, =<, <, true
+	* less语句
+	* 编译结果
+2. 类型检查函数
+3. 单位检查函数
