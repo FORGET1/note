@@ -958,6 +958,59 @@
 	* 比较运算符
 		* \>, >=, =, =<, <, true
 	* less语句
+		```
+		.mixin(@a) when (lightness(@a)>=50%) {
+		  background-color: black;
+		}
+		.mixin(@a) when (lightness(@a)<50%) {
+		  background-color: white;
+		}
+		.mixin(@a) {
+		  color: @a;
+		}
+		.class1 {.mixin(#ddd)}
+		.class2 {.mixin(#555)}
+		```
 	* 编译结果
+		```
+		.class1 {
+		  background-color: black;
+		  color: #ddd;
+		}
+		.class2 {
+		  background-color: white;
+		  color: #555;
+		}
+		```
 2. 类型检查函数
+	* 可以基于值的类型来匹配函数
+	* 基本的类型检查函数
+		```
+		iscolor
+		isnumber
+		isstring
+		iskeyword
+		isurl
+		```
+	* 例子
+		```
+		.mixin(@a;@b:0) when (isnumber(@b)) {...}
+		.mixin(@a;@b:0) when (iscolor(@b)) {...}
+		```
 3. 单位检查函数
+	*  检查一个值除了数字是否是一个特定的单位
+	* 基本的单位检查函数
+		```
+		ispixel
+		ispercentage
+		isem
+		isunit
+		```
+
+## 循环
+1. 在Less中，混合可以调用它自身，这样，当一个混合递归调用自己，再结合Guard表达式和模式匹配这两个特性，就可以写出循环结构。
+2. 实例
+	```
+	
+	```
+3. 编译结果

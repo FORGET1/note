@@ -346,3 +346,19 @@ p, a, ul, li {
 .important {
 	.foo() !important;
 }
+/*条件表达式*/
+.mixn(@a) when (lightness(@a)>=50%) {
+	background-color: black;
+}
+.mixn(@a) when (lightness(@a)<50%) {
+	background-color: white;
+}
+.mixn(@a) {
+	color: @a;
+}
+.class1 {
+	.mixn(#ddd)
+}
+.class2 {
+	.mixn(#555)
+}

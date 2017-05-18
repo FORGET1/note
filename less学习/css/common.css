@@ -252,3 +252,12 @@ li li {
   background: #f5f5f5 !important;
   color: #900 !important;
 }
+/*条件表达式*/
+.class1 {
+  background-color: black;
+  color: #ddd;
+}
+.class2 {
+  background-color: white;
+  color: #555;
+}
