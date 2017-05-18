@@ -1011,6 +1011,21 @@
 1. 在Less中，混合可以调用它自身，这样，当一个混合递归调用自己，再结合Guard表达式和模式匹配这两个特性，就可以写出循环结构。
 2. 实例
 	```
-	
+	.loop(@counter) when (@counter>0) {
+	  .loop((@counter - 1));	//递归调用自身
+	  width:(10px * @counter);  //每次调用时产生的样式代码
+	}
+	div {
+	  .loop(5);	//调用循环
+	}
 	```
 3. 编译结果
+	```
+	div {
+	  width: 10px;
+	  width: 20px;
+	  width: 30px;
+	  width: 40px;
+	  width: 50px;
+	}
+	```

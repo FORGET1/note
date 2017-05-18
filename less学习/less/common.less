@@ -362,3 +362,11 @@ p, a, ul, li {
 .class2 {
 	.mixn(#555)
 }
+/*循环*/
+.loop(@counter) when (@counter>0) {
+  .loop((@counter - 1));	//递归调用自身
+  width: (10px * @counter); //每次调用时产生的样式代码
+}
+div {
+  .loop(5); //调用循环
+}
