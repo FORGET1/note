@@ -370,3 +370,13 @@ p, a, ul, li {
 div {
   .loop(5); //调用循环
 }
+
+
+/*合并属性*/
+.minix() {
+  box-shadow+: inset 0 0 10px #555;
+}
+.myclass {
+  .minix();
+  box-shadow+: inset 0 0 20px #666;
+}

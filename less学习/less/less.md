@@ -1029,3 +1029,24 @@
 	  width: 50px;
 	}
 	```
+
+## 合并属性
+1. “+”逗号分隔所合并的属性值
+	* 在需要合并的属性的：的前面加上+就可以完成合并，合并以"，"分隔属性
+	* 实例
+	 * less
+	 	```
+		.minix() {
+		  box-shadow+: inset 0 0 10px #555;
+		}
+		.myclass {
+		  .minix();
+		  box-shadow+: inset 0 0 20px #666;
+		}
+		```
+	 * 编译结果
+	 	```
+		.myclass {
+		  box-shadow: inset 0 0 10px #555, inset 0 0 20px #666;
+		}
+		```
